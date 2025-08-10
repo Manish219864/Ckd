@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CKD Prediction Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+  <h2>Enter Patient Data</h2>
+  <form action="/predict" method="post">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label>Age</label>
+        <input type="number" step="any" name="age" class="form-control" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label>Blood Pressure</label>
+        <input type="number" step="any" name="bp" class="form-control" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label>Specific Gravity</label>
+        <input type="number" step="0.001" name="sg" class="form-control" value="1.020" required>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Albumin</label>
+        <input type="number" name="al" class="form-control" value="0" required>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Sugar</label>
+        <input type="number" name="su" class="form-control" value="0" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label>RBC (normal/abnormal)</label>
+        <select name="rbc" class="form-select">
+          <option value="normal">Normal</option>
+          <option value="abnormal">Abnormal</option>
+        </select>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Pus Cell (normal/abnormal)</label>
+        <select name="pc" class="form-select">
+          <option value="normal">Normal</option>
+          <option value="abnormal">Abnormal</option>
+        </select>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Pus Cell Clumps (present/notpresent)</label>
+        <select name="pcc" class="form-select">
+          <option value="notpresent">Not Present</option>
+          <option value="present">Present</option>
+        </select>
+      </div>
+    </div>
+    <!-- Additional form rows for remaining features (ba, bgr, bu, etc.) follow similarly... -->
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <label>Bacteria (present/notpresent)</label>
+        <select name="ba" class="form-select">
+          <option value="notpresent">Not Present</option>
+          <option value="present">Present</option>
+        </select>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label>Blood Glucose Random</label>
+        <input type="number" name="bgr" class="form-control" value="0" required>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label>Blood Urea</label>
+        <input type="number" name="bu" class="form-control" value="0" required>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label>Serum Creatinine</label>
+        <input type="number" name="sc" class="form-control" value="0" required>
+      </div>
+    </div>
+    <!-- Continue adding inputs for sod, pot, hemo, pcv, wc, rc, htn, dm, cad, appet, pe, ane -->
+    <!-- Example of yes/no fields: -->
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <label>Hypertension</label>
+        <select name="htn" class="form-select">
+          <option value="no">No</option>
+          <option value="yes">Yes</option>
+        </select>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label>Diabetes Mellitus</label>
+        <select name="dm" class="form-select">
+          <option value="no">No</option>
+          <option value="yes">Yes</option>
+        </select>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label>Coronary Artery Disease</label>
+        <select name="cad" class="form-select">
+          <option value="no">No</option>
+          <option value="yes">Yes</option>
+        </select>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label>Appetite (good/poor)</label>
+        <select name="appet" class="form-select">
+          <option value="good">Good</option>
+          <option value="poor">Poor</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <label>Pedal Edema</label>
+        <select name="pe" class="form-select">
+          <option value="no">No</option>
+          <option value="yes">Yes</option>
+        </select>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label>Anemia</label>
+        <select name="ane" class="form-select">
+          <option value="no">No</option>
+          <option value="yes">Yes</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success">Predict CKD</button>
+  </form>
+</div>
+</body>
+</html>
